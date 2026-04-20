@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &mdash; The Movement Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ══ RESET & ROOT ══ */
+:root {
+  --black:       #000000;
+  --dark:        #0a0e0a;
+  --dark2:       #111411;
+  --dark3:       #0e150e;
+  --green:       #3ecf6e;
+  --green-dark:  #2ab55a;
+  --orange:      #e8744a;
+  --light-mint:  #f0f5f0;
+  --light-grey:  #ebebeb;
+  --white:       #ffffff;
+}
+
+*, *::before, *::after {
+  margin:     0;
+  padding:    0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background:  var(--black);
+  color:       #fff;
+  overflow-x:  hidden;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height:    auto;
+  display:   block;
+}
+
+a {
+  text-decoration: none;
+  color:           inherit;
+}
+
+/* ══ HEADER ══ */
+header {
+  position:      fixed;
+  top:           0;
+  left:          0;
+  right:         0;
+  z-index:       1000;
+  background:    #000000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  height:        76px;
+  display:       flex;
+  align-items:   center;
+}
+
+.nav-wrap {
+  width:           100%;
+  max-width:       1280px;
+  margin:          0 auto;
+  padding:         0 32px;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+}
+
+.nav-logo img { height: 58px; width: auto; }
+
+.nav-links {
+  display:     flex;
+  align-items: center;
+  gap:         36px;
+  list-style:  none;
+}
+
+.nav-links a {
+  font-family:     'Barlow Condensed', sans-serif;
+  font-size:       16px;
+  font-weight:     700;
+  letter-spacing:  0.08em;
+  text-transform:  uppercase;
+  color:           #fff;
+  transition:      color 0.2s;
+  white-space:     nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--green); }
+
+.nav-links a.green { color: var(--green); }
+
+.hamburger {
+  width:           52px;
+  height:          52px;
+  background:      #1a1a1a;
+  border:          1px solid rgba(255,255,255,0.12);
+  border-radius:   8px;
+  display:         none;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             6px;
+  cursor:          pointer;
+  transition:      background 0.2s;
+  flex-shrink:     0;
+}
+
+.hamburger:hover { background: #2a2a2a; }
+
+.hamburger span {
+  display:       block;
+  width:         22px;
+  height:        2px;
+  background:    #fff;
+  border-radius: 2px;
+}
+
+/* ══ MOBILE MENU ══ */
+.mobile-menu {
+  position:       fixed;
+  inset:          0;
+  z-index:        2000;
+  background:     #000000;
+  display:        flex;
+  flex-direction: column;
+  transform:      translateX(100%);
+  transition:     transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  overflow:       hidden;
+}
+
+.mobile-menu.open { transform: translateX(0); }
+
+.menu-top {
+  height:          76px;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  border-bottom:   1px solid rgba(255,255,255,0.07);
+  padding:         0 28px;
+  flex-shrink:     0;
+}
+
+.menu-top img { height: 52px; width: auto; }
+
+.menu-x {
+  width:           52px;
+  height:          52px;
+  background:      #1a1a1a;
+  border:          1px solid rgba(255,255,255,0.1);
+  border-radius:   8px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  cursor:          pointer;
+  font-size:       20px;
+  color:           #fff;
+  font-family:     'Barlow Condensed', sans-serif;
+  font-weight:     700;
+  transition:      all 0.2s;
+}
+
+.menu-x:hover { background: var(--green); color: #000; }
+
+.menu-links {
+  flex:           1;
+  overflow-y:     auto;
+  padding:        8px 28px 24px;
+  display:        flex;
+  flex-direction: column;
+}
+
+.menu-links a {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(32px, 7vw, 48px);
+  font-weight:    900;
+  color:          #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding:        14px 0;
+  border-bottom:  1px solid rgba(255,255,255,0.06);
+  display:        block;
+  transition:     color 0.2s, padding-left 0.2s;
+}
+
+.menu-links a:hover       { color: var(--green); padding-left: 14px; }
+.menu-links a.active      { color: var(--green); }
+.menu-links a.green-link  { color: var(--green); }
+.menu-links a.green-link:hover { color: #fff; }
+
+.menu-bottom {
+  padding:        16px 28px;
+  border-top:     1px solid rgba(255,255,255,0.06);
+  font-size:      12px;
+  color:          rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink:    0;
+}
+
+/* ══ UTILITIES ══ */
+.container {
+  max-width: 1280px;
+  margin:    0 auto;
+  padding:   0 32px;
+}
+
+.section-label {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            12px;
+  font-family:    'Barlow', sans-serif;
+  font-size:      12px;
+  font-weight:    700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  22px;
+}
+
+.section-label::before {
+  content:    '';
+  display:    block;
+  width:      28px;
+  height:     2px;
+  background: var(--green);
+}
+
+.fade-up {
+  opacity:    0;
+  transform:  translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-up.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+.fade-left {
+  opacity:    0;
+  transform:  translateX(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-left.visible {
+  opacity:   1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  opacity:    0;
+  transform:  translateX(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-right.visible {
+  opacity:   1;
+  transform: translateX(0);
+}
+
+/* ══ S1 — HERO ══ */
+#hero {
+  padding:    160px 0 100px;
+  background: linear-gradient(135deg, #0a0e0a 0%, #0d1a0d 40%, #0a0e0a 100%);
+  position:   relative;
+  overflow:   hidden;
+}
+
+.hero-glow {
+  position:       absolute;
+  top:            -15%;
+  right:          -5%;
+  width:          600px;
+  height:         600px;
+  background:     radial-gradient(circle, rgba(62,207,110,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            12px;
+  font-family:    'Barlow', sans-serif;
+  font-size:      12px;
+  font-weight:    700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  24px;
+}
+
+.hero-eyebrow::before {
+  content:    '';
+  display:    block;
+  width:      28px;
+  height:     2px;
+  background: var(--green);
+}
+
+.hero-h1 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(44px, 8vw, 96px);
+  font-weight:    900;
+  text-transform: uppercase;
+  line-height:    0.94;
+  color:          #fff;
+  margin-bottom:  28px;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size:   clamp(16px, 1.8vw, 19px);
+  color:       rgba(255,255,255,0.6);
+  max-width:   660px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ══ S2 — STATS ══ */
+#stats {
+  background: var(--dark3);
+  padding:    80px 0;
+}
+
+.stats-stack {
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+}
+
+.stat-item-card {
+  background:  rgba(62,207,110,0.04);
+  border:      1px solid rgba(62,207,110,0.2);
+  border-radius: 16px;
+  padding:     28px 36px;
+  display:     flex;
+  align-items: center;
+  gap:         32px;
+  transition:  border-color 0.2s, background 0.2s;
+}
+
+.stat-item-card:hover {
+  border-color: rgba(62,207,110,0.4);
+  background:   rgba(62,207,110,0.07);
+}
+
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:   clamp(44px, 8vw, 72px);
+  font-weight: 900;
+  color:       var(--green);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width:   120px;
+}
+
+.stat-label {
+  font-family: 'Barlow', sans-serif;
+  font-size:   clamp(16px, 1.8vw, 20px);
+  color:       rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+/* ══ S3 — WHY TMN WAS FOUNDED ══ */
+#founded {
+  background: var(--light-grey);
+  padding:    100px 0;
+  color:      #111;
+}
+
+.founded-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:   clamp(34px, 5vw, 60px);
+  font-weight: 900;
+  color:       #111;
+  line-height: 1.05;
+  margin-bottom: 28px;
+}
+
+.founded-p {
+  font-size:    clamp(15px, 1.4vw, 17px);
+  color:        #444;
+  line-height:  1.85;
+  margin-bottom: 20px;
+}
+
+.quote-block {
+  background:    #fff;
+  border-left:   4px solid var(--green);
+  border-radius: 0 16px 16px 0;
+  padding:       32px 36px;
+  margin:        32px 0;
+}
+
+.quote-block blockquote {
+  font-family: 'Barlow', sans-serif;
+  font-size:   clamp(16px, 1.6vw, 19px);
+  font-style:  italic;
+  color:       #222;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.quote-block cite {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      14px;
+  font-weight:    700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--green);
+}
+
+.problem-approach {
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+  margin-top:     32px;
+}
+
+.problem-card {
+  background:    #fff;
+  border-radius: 16px;
+  padding:       28px 32px;
+  border:        1px solid rgba(0,0,0,0.06);
+}
+
+.problem-card h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(16px, 1.5vw, 19px);
+  font-weight:    900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          #111;
+  margin-bottom:  12px;
+}
+
+.problem-card p {
+  font-size:    clamp(14px, 1.3vw, 16px);
+  color:        #555;
+  line-height:  1.8;
+  word-wrap:    break-word;
+  overflow-wrap: break-word;
+}
+
+.approach-card {
+  background:    var(--dark2);
+  border-radius: 16px;
+  padding:       28px 32px;
+}
+
+.approach-card h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(14px, 1.3vw, 16px);
+  font-weight:    900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color:          var(--green);
+  margin-bottom:  12px;
+}
+
+.approach-card p {
+  font-size:    clamp(14px, 1.3vw, 16px);
+  color:        rgba(255,255,255,0.72);
+  line-height:  1.8;
+  word-wrap:    break-word;
+  overflow-wrap: break-word;
+}
+
+/* ══ S4 — WHAT MAKES TMN DIFFERENT ══ */
+#difference {
+  background: var(--light-grey);
+  padding:    100px 0;
+  color:      #111;
+}
+
+.diff-header { margin-bottom: 52px; }
+
+.diff-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:   clamp(34px, 5vw, 60px);
+  font-weight: 900;
+  color:       #111;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.diff-sub {
+  font-size:  clamp(15px, 1.4vw, 17px);
+  color:      #555;
+  line-height: 1.7;
+  max-width:  560px;
+}
+
+.diff-cards {
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+}
+
+.diff-card {
+  background:    #fff;
+  border-radius: 20px;
+  padding:       32px 28px;
+  border:        2px solid transparent;
+  transition:    border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  word-wrap:     break-word;
+  overflow:      hidden;
+}
+
+.diff-card:hover {
+  border-color: var(--green);
+  transform:    translateY(-3px);
+  box-shadow:   0 12px 36px rgba(0,0,0,0.08);
+}
+
+.diff-card.highlighted { border-color: var(--green); }
+
+.diff-icon {
+  width:           64px;
+  height:          64px;
+  background:      rgba(62,207,110,0.1);
+  border-radius:   14px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       28px;
+  margin-bottom:   20px;
+  flex-shrink:     0;
+}
+
+.diff-card h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(18px, 1.8vw, 22px);
+  font-weight:    900;
+  text-transform: uppercase;
+  color:          #111;
+  margin-bottom:  12px;
+  letter-spacing: 0.04em;
+  word-break:     break-word;
+}
+
+.diff-card p {
+  font-size:    clamp(14px, 1.3vw, 16px);
+  color:        #555;
+  line-height:  1.78;
+  word-wrap:    break-word;
+  overflow-wrap: break-word;
+}
+
+/* ══ S5 — KEY MILESTONES ══ */
+#milestones {
+  background: var(--light-grey);
+  padding:    100px 0;
+  color:      #111;
+}
+
+.milestones-h2 {
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     clamp(34px, 5vw, 56px);
+  font-weight:   900;
+  color:         #111;
+  margin-bottom: 52px;
+  line-height:   1.05;
+}
+
+.timeline {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+}
+
+.tl-row {
+  display:               grid;
+  grid-template-columns: 64px 1fr;
+  gap:                   0;
+  position:              relative;
+}
+
+.tl-row:not(:last-child)::after {
+  content:    '';
+  position:   absolute;
+  left:       31px;
+  top:        70px;
+  bottom:     0;
+  width:      2px;
+  background: rgba(62,207,110,0.2);
+}
+
+.tl-left {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  padding-top:    4px;
+}
+
+.tl-circle {
+  width:         56px;
+  height:        56px;
+  background:    var(--green);
+  border-radius: 50%;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  font-size:     22px;
+  flex-shrink:   0;
+  z-index:       1;
+  box-shadow:    0 0 0 4px rgba(62,207,110,0.15);
+}
+
+.tl-body { padding: 0 0 52px 28px; }
+
+.tl-year {
+  font-family:    'Barlow', sans-serif;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--green-dark);
+  margin-bottom:  6px;
+}
+
+.tl-body h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(18px, 2vw, 24px);
+  font-weight:    900;
+  color:          #111;
+  margin-bottom:  10px;
+  letter-spacing: 0.02em;
+}
+
+.tl-body p {
+  font-size:    clamp(14px, 1.3vw, 16px);
+  color:        #555;
+  line-height:  1.78;
+  word-wrap:    break-word;
+  overflow-wrap: break-word;
+}
+
+/* ══ S6 — FOUNDING COUNCIL ══ */
+#team {
+  background: var(--light-grey);
+  padding:    0 0 100px;
+}
+
+.team-h2 {
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     clamp(34px, 5vw, 56px);
+  font-weight:   900;
+  color:         #111;
+  margin-bottom: 36px;
+  line-height:   1.05;
+}
+
+.team-grid {
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+}
+
+.team-card {
+  background:    #fff;
+  border-radius: 20px;
+  padding:       40px 32px;
+  text-align:    center;
+  border:        1px solid rgba(0,0,0,0.06);
+  transition:    transform 0.2s, box-shadow 0.2s;
+}
+
+.team-card:hover {
+  transform:  translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.team-avatar {
+  width:           80px;
+  height:          80px;
+  background:      var(--green);
+  border-radius:   50%;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-family:     'Barlow Condensed', sans-serif;
+  font-size:       24px;
+  font-weight:     900;
+  color:           #fff;
+  margin:          0 auto 20px;
+}
+
+.team-card h3 {
+  font-family:   'Barlow', sans-serif;
+  font-size:     clamp(18px, 1.8vw, 22px);
+  font-weight:   700;
+  color:         #111;
+  margin-bottom: 8px;
+}
+
+.team-role {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  14px;
+}
+
+.team-card p {
+  font-size:    clamp(14px, 1.3vw, 15px);
+  color:        #666;
+  line-height:  1.7;
+  word-wrap:    break-word;
+  overflow-wrap: break-word;
+}
+
+/* ══ S7 — FINAL CTA ══ */
+#final-cta {
+  background:  var(--green);
+  padding:     100px 32px;
+  text-align:  center;
+}
+
+.fcta-h2 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(32px, 5vw, 64px);
+  font-weight:    900;
+  color:          #fff;
+  line-height:    1.02;
+  margin-bottom:  20px;
+  text-transform: uppercase;
+}
+
+.fcta-sub {
+  font-size:    clamp(16px, 1.8vw, 20px);
+  color:        rgba(255,255,255,0.85);
+  line-height:  1.75;
+  margin-bottom: 44px;
+  max-width:    600px;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+.fcta-btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             10px;
+  background:      #fff;
+  color:           #111;
+  font-family:     'Barlow', sans-serif;
+  font-weight:     700;
+  font-size:       17px;
+  padding:         20px 52px;
+  border-radius:   100px;
+  cursor:          pointer;
+  transition:      all 0.25s;
+  text-decoration: none;
+  border:          none;
+}
+
+.fcta-btn:hover {
+  background:  rgba(255,255,255,0.92);
+  transform:   translateY(-2px);
+  box-shadow:  0 12px 32px rgba(0,0,0,0.15);
+}
+
+/* ══ FOOTER ══ */
+footer {
+  background:  #000000;
+  border-top:  1px solid rgba(255,255,255,0.06);
+  padding:     80px 0 0;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin:    0 auto;
+  padding:   0 32px;
+}
+
+.footer-grid {
+  display:               grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap:                   48px;
+  margin-bottom:         52px;
+}
+
+.footer-brand img {
+  height:        62px;
+  width:         auto;
+  margin-bottom: 16px;
+  display:       block;
+}
+
+.footer-tagline {
+  font-size:    14px;
+  color:        rgba(255,255,255,0.36);
+  line-height:  1.75;
+  max-width:    280px;
+  margin-bottom: 24px;
+}
+
+.social-row {
+  display:   flex;
+  gap:       10px;
+  flex-wrap: wrap;
+}
+
+.soc {
+  width:       46px;
+  height:      46px;
+  border-radius: 10px;
+  display:     grid;
+  place-items: center;
+  transition:  transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.soc:hover { transform: translateY(-3px); }
+
+.soc-ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.soc-ig:hover { box-shadow: 0 8px 20px rgba(220,39,67,0.4); }
+
+.soc-x {
+  background: #000;
+  border:     1px solid #333;
+}
+
+.soc-fb { background: #1877F2; }
+
+.soc-fb:hover { box-shadow: 0 8px 20px rgba(24,119,242,0.4); }
+
+.soc-tt {
+  background: #000;
+  border:     1px solid #333;
+}
+
+.soc-wa { background: #25D366; }
+
+.soc-wa:hover { box-shadow: 0 8px 20px rgba(37,211,102,0.4); }
+
+.footer-col h5 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  20px;
+  text-align:     left;
+}
+
+.footer-col ul {
+  list-style:     none;
+  display:        flex;
+  flex-direction: column;
+  gap:            12px;
+  text-align:     left;
+  padding-left:   0;
+  margin-left:    0;
+}
+
+.footer-col ul li a {
+  font-size:  14px;
+  color:      rgba(255,255,255,0.46);
+  transition: color 0.2s;
+  display:    block;
+  text-align: left;
+}
+
+.footer-col ul li a:hover    { color: var(--green); }
+.footer-col ul li a.green-link { color: var(--green); }
+
+.footer-bottom {
+  border-top:  1px solid rgba(255,255,255,0.06);
+  padding:     28px 0 34px;
+  text-align:  center;
+}
+
+.footer-copy {
+  font-size:     12px;
+  color:         rgba(255,255,255,0.2);
+  margin-bottom: 8px;
+}
+
+.footer-motto {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(13px, 2vw, 18px);
+  font-weight:    900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--green);
+  opacity:        0.6;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (min-width: 1025px) {
+  .hamburger { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .nav-links  { display: none; }
+  .hamburger  { display: flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 768px) {
+  .container    { padding: 0 20px; }
+  header        { height: 68px; }
+  .nav-wrap     { padding: 0 20px; }
+  .nav-logo img { height: 50px; }
+  #hero         { padding: 110px 0 64px; }
+  .stat-item-card {
+    flex-direction: row;
+    gap:            20px;
+    padding:        22px 24px;
+  }
+  .stat-num { min-width: 80px; font-size: clamp(36px, 10vw, 56px); }
+  .diff-card { padding: 24px 20px; }
+  .tl-body   { padding: 0 0 40px 20px; }
+  .footer-grid  { grid-template-columns: 1fr; gap: 28px; }
+  .footer-inner { padding: 0 20px; }
+  .menu-top     { padding: 0 20px; }
+  .menu-links   { padding: 8px 20px 20px; }
+  .menu-bottom  { padding: 14px 20px; }
+  #final-cta    { padding: 80px 20px; }
+}
+
+@media (max-width: 480px) {
+  .container    { padding: 0 16px; }
+  .footer-inner { padding: 0 16px; }
+  .stat-num     { font-size: clamp(32px, 10vw, 48px); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <div class="nav-wrap">
+    <a href="/"><img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria" style="height:58px;width:auto;"></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/" class="active">About</a></li>
+      <li><a href="/vision/">Vision</a></li>
+      <li><a href="/pillars/">Pillars</a></li>
+      <li><a href="/agenda/">Agenda</a></li>
+      <li><a href="/join/">Join</a></li>
+      <li><a href="/ciap-program/" class="green">CIAP Program</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ════ MOBILE MENU ════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="menu-top">
+    <a href="/"><img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria" style="height:52px;width:auto;"></a>
+    <button class="menu-x" id="menuClose">&#10005;</button>
+  </div>
+  <nav class="menu-links">
+    <a href="/">Home</a>
+    <a href="/about/" class="active">About</a>
+    <a href="/vision/">Vision</a>
+    <a href="/pillars/">Pillars</a>
+    <a href="/agenda/">Agenda</a>
+    <a href="/join/">Join</a>
+    <a href="/ciap-program/" class="green-link">CIAP Program</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="menu-bottom">&copy; 2026 The Movement Nigeria</div>
+</div>
+
+<!-- ════ S1 — HERO ════ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow fade-up">Who We Are</div>
+    <h1 class="hero-h1 fade-up" style="transition-delay:0.1s;">About The<br>Movement Nigeria</h1>
+    <p class="hero-sub fade-up" style="transition-delay:0.2s;">A structured civic platform building Nigeria&rsquo;s first disciplined, long-term movement for democratic participation, leadership development, and national renewal.</p>
+  </div>
+</section>
+
+<!-- ════ S2 — STATS ════ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-stack">
+      <div class="stat-item-card fade-up">
+        <div class="stat-num">36</div>
+        <div class="stat-label">States &amp; FCT Represented</div>
+      </div>
+      <div class="stat-item-card fade-up" style="transition-delay:0.08s;">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Strategic Pillars</div>
+      </div>
+      <div class="stat-item-card fade-up" style="transition-delay:0.16s;">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Year Founded</div>
+      </div>
+      <div class="stat-item-card fade-up" style="transition-delay:0.24s;">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Audience Groups</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S3 — WHY TMN WAS FOUNDED ════ -->
+<section id="founded">
+  <div class="container">
+    <div style="max-width:900px;">
+      <div class="section-label fade-up">Our Background</div>
+      <h2 class="founded-h2 fade-up">Why TMN Was Founded</h2>
+
+      <p class="founded-p fade-up">Nigeria is one of the youngest countries in the world, with a rapidly growing population of young people eager to contribute to national progress. Yet many citizens feel excluded from meaningful participation in governance and policy-making.</p>
+
+      <p class="founded-p fade-up">Across the world, youth-led civic movements have played a decisive role in shaping democratic transformation. From the student-led civic organization Otpor, which helped catalyze democratic reforms in Eastern Europe, to civic participation organizations like YIAGA Africa that promote democratic engagement &mdash; organized citizens have consistently proven capable of influencing national direction.</p>
+
+      <p class="founded-p fade-up">The Movement Nigeria draws inspiration from these global experiences while focusing specifically on the unique realities, aspirations, and opportunities within Nigeria. We are not copying a model. We are building something designed for this soil.</p>
+
+      <div class="quote-block fade-up">
+        <blockquote>&ldquo;Nigeria has already produced the energy. What has been missing is organization. That is the vacuum The Movement Nigeria was built to fill.&rdquo;</blockquote>
+        <cite>&mdash; TMN Founding Principle</cite>
+      </div>
+
+      <div class="problem-approach fade-up">
+        <div class="problem-card">
+          <h3>The Problem We Solve</h3>
+          <p>Public interest in Nigeria does not translate into sustained engagement. Civic energy is not effectively coordinated. Long-term institutional development remains limited. TMN changes this.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Our Approach</h3>
+          <p>We emphasize continuous civic participation, leadership development, and institution-building rather than relying solely on electoral cycles or social media moments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S4 — WHAT MAKES TMN DIFFERENT ════ -->
+<section id="difference">
+  <div class="container">
+    <div class="diff-header fade-up">
+      <div class="section-label">Our Difference</div>
+      <h2 class="diff-h2">What Makes TMN Different</h2>
+      <p class="diff-sub">We are not a campaign, a protest, or a moment.<br>We are building a disciplined, long-term institution.</p>
+    </div>
+
+    <div class="diff-cards">
+      <div class="diff-card highlighted fade-up">
+        <div class="diff-icon">&#127963;</div>
+        <h3>Institution First</h3>
+        <p>While others build campaigns that fade, we are building permanent civic infrastructure &mdash; membership systems, training pipelines, state structures, and policy capacity that outlast any single election.</p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">&#129504;</div>
+        <h3>Intellectual Seriousness</h3>
+        <p>TMN does not do noise. Every communication is crafted to inform, educate, and elevate civic discourse. We believe that a movement is only as credible as its ideas.</p>
+      </div>
+      <div class="diff-card highlighted fade-up">
+        <div class="diff-icon">&#128225;</div>
+        <h3>Digitally Native</h3>
+        <p>From WhatsApp organizing networks to civic influencer training and digital education content &mdash; TMN is built for how Nigerians actually communicate and connect today.</p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">&#127757;</div>
+        <h3>Truly National</h3>
+        <p>Not Lagos-only. Not elite-only. Not diaspora-only. TMN is designed for Nigerians across all 36 states, all ethnic backgrounds, all socioeconomic groups, and all religions.</p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">&#128279;</div>
+        <h3>Coalition Building</h3>
+        <p>We actively build bridges between youths and professionals, between diaspora and home, between communities and policy &mdash; because lasting change requires everyone at the table.</p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">&#128200;</div>
+        <h3>Long-Term Thinking</h3>
+        <p>Our roadmap runs through 2027, 2031, and beyond. We plan, measure, and build for decades &mdash; not for the next news cycle or election campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S5 — KEY MILESTONES ════ -->
+<section id="milestones">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Our Journey</div>
+      <h2 class="milestones-h2">Key Milestones</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-row fade-up">
+        <div class="tl-left"><div class="tl-circle">&#127793;</div></div>
+        <div class="tl-body">
+          <div class="tl-year">2025</div>
+          <h3>Concept &amp; Founding</h3>
+          <p>The Movement Nigeria concept developed from conversations about the structural gaps in Nigeria&rsquo;s civic and opposition landscape. Founding philosophy established.</p>
+        </div>
+      </div>
+
+      <div class="tl-row fade-up">
+        <div class="tl-left"><div class="tl-circle">&#128640;</div></div>
+        <div class="tl-body">
+          <div class="tl-year">Early 2026</div>
+          <h3>Platform Launch</h3>
+          <p>Official website, brand identity, and onboarding infrastructure launched. First membership registrations opened. National organizing begins.</p>
+        </div>
+      </div>
+
+      <div class="tl-row fade-up">
+        <div class="tl-left"><div class="tl-circle">&#128225;</div></div>
+        <div class="tl-body">
+          <div class="tl-year">Mid 2026</div>
+          <h3>Civic Influencer Program</h3>
+          <p>First cohort of National Civic Influencers trained. State-level WhatsApp community networks activated across all 36 states and FCT.</p>
+        </div>
+      </div>
+
+      <div class="tl-row fade-up">
+        <div class="tl-left"><div class="tl-circle">&#127963;</div></div>
+        <div class="tl-body" style="padding-bottom:0;">
+          <div class="tl-year">2027</div>
+          <h3>National Elections Participation</h3>
+          <p>TMN participates constructively in the national election cycle as a credible civic voice. Membership networks engaged for responsible voter participation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ S6 — FOUNDING COUNCIL ════ -->
+<section id="team">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Our Team</div>
+      <h2 class="team-h2">Founding Council</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <div class="team-avatar">FD</div>
+        <h3>Founding Director</h3>
+        <div class="team-role">Executive Leadership</div>
+        <p>Civic strategist and movement builder with a background in political organization and national advocacy.</p>
+      </div>
+      <div class="team-card fade-up">
+        <div class="team-avatar">PD</div>
+        <h3>Programs Director</h3>
+        <div class="team-role">Civic Programs</div>
+        <p>Leads the Civic Influencer program and community organizing training initiatives nationwide.</p>
+      </div>
+      <div class="team-card fade-up">
+        <div class="team-avatar">CD</div>
+        <h3>Communications Lead</h3>
+        <div class="team-role">Strategy &amp; Media</div>
+        <p>Shapes TMN&rsquo;s public voice, digital content ecosystem, and civic education communications.</p>
+      </div>
+      <div class="team-card fade-up">
+        <div class="team-avatar">OD</div>
+        <h3>Operations Director</h3>
+        <div class="team-role">Infrastructure &amp; Systems</div>
+        <p>Manages member networks, state coordination, and the organizational backbone of TMN.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S7 — FINAL CTA ════ -->
+<section id="final-cta">
+  <h2 class="fcta-h2 fade-up">Become Part of the Story</h2>
+  <p class="fcta-sub fade-up">The Movement Nigeria is being built right now. Join us from the beginning and help shape what this platform becomes for Nigeria.</p>
+  <a href="/join/" class="fcta-btn fade-up">Join The Movement &#8594;</a>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <div>
+        <a href="/"><img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria" style="height:62px;width:auto;margin-bottom:16px;display:block;"></a>
+        <p class="footer-tagline">Organizing Citizens. Rebuilding the Nation. CIAP is a TMN flagship program backed and delivered through iNuud Institute.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/themovement_nigeria?igsh=MTB0eng0Z2sxandvaw%3D%3D&utm_source=qr" class="soc soc-ig" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://x.com/movementni22874?s=11" class="soc soc-x" target="_blank" rel="noopener" aria-label="X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- FLAG: replace # with TMN Facebook profile URL -->
+          <a href="#" class="soc soc-fb" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@themovement_nigeria?_r=1&_t=ZS-95SCCgSVwNI" class="soc soc-tt" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+          </a>
+          <!-- FLAG: replace # with TMN WhatsApp group/channel URL -->
+          <a href="#" class="soc soc-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/vision/">Vision</a></li>
+          <li><a href="/pillars/">Pillars</a></li>
+          <li><a href="/agenda/">Agenda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Get Involved</h5>
+        <ul>
+          <li><a href="/join/">Join TMN</a></li>
+          <li><a href="/ciap-program/" class="green-link">CIAP Program</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Movement Nigeria. All rights reserved. CIAP is a TMN Initiative delivered through iNuud Institute.</p>
+      <p class="footer-motto">Organizing Citizens &middot; Rebuilding the Nation</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+var hamburger  = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var menuClose  = document.getElementById('menuClose');
+
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+menuClose.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(l) {
+  l.addEventListener('click', function() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── SCROLL ANIMATIONS ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(function(el) {
+  obs.observe(el);
+});
+
+// Stagger diff cards
+document.querySelectorAll('.diff-card').forEach(function(c, i) {
+  c.style.transitionDelay = (i * 0.07) + 's';
+  obs.observe(c);
+});
+
+// Stagger team cards
+document.querySelectorAll('.team-card').forEach(function(c, i) {
+  c.style.transitionDelay = (i * 0.1) + 's';
+  obs.observe(c);
+});
+
+// Stagger timeline rows
+document.querySelectorAll('.tl-row').forEach(function(c, i) {
+  c.style.transitionDelay = (i * 0.1) + 's';
+  obs.observe(c);
+});
+
+// Stagger stats
+document.querySelectorAll('.stat-item-card').forEach(function(c, i) {
+  c.style.transitionDelay = (i * 0.08) + 's';
+  obs.observe(c);
+});
+</script>
+</body>
+</html>
