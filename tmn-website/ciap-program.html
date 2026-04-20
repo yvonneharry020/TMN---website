@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIAP &mdash; Civic Influencer Accelerator Program | The Movement Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Righteous&display=swap" rel="stylesheet">
+<style>
+
+/* ══ RESET & ROOT ══ */
+:root {
+  --black:      #000000;
+  --hero-navy:  #0c1524;
+  --white:      #ffffff;
+  --light:      #f2f2f2;
+  --green:      #3ecf6e;
+  --green-dark: #2ab55a;
+  --green-glow: rgba(62,207,110,0.12);
+  --orange:     #e8744a;
+  --card-dark:  #111111;
+}
+
+*, *::before, *::after {
+  margin:     0;
+  padding:    0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  background:  var(--black);
+  color:       #fff;
+  overflow-x:  hidden;
+  line-height: 1.7;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+h1, h2, h3, h4 {
+  font-family:    'Barlow Condensed', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.container {
+  max-width: 1200px;
+  margin:    0 auto;
+  padding:   0 32px;
+}
+
+.green-text { color: var(--green); }
+
+.section-label {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            12px;
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  22px;
+  font-family:    'Barlow', sans-serif;
+}
+
+.section-label::before {
+  content:    '';
+  display:    block;
+  width:      28px;
+  height:     2px;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+/* ══ BUTTONS ══ */
+.btn-green {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            10px;
+  background:     var(--green);
+  color:          #000;
+  font-family:    'Barlow Condensed', sans-serif;
+  font-weight:    700;
+  font-size:      18px;
+  letter-spacing: 0.06em;
+  padding:        18px 44px;
+  border-radius:  8px;
+  border:         2px solid var(--green);
+  cursor:         pointer;
+  transition:     all 0.25s ease;
+  text-transform: uppercase;
+}
+
+.btn-green:hover {
+  background:  #000;
+  color:       #fff;
+  transform:   translateY(-2px);
+  box-shadow:  0 12px 36px rgba(62,207,110,0.3);
+}
+
+.btn-green:active { transform: translateY(0); }
+
+/* ══ HEADER ══ */
+header {
+  position:      fixed;
+  top:           0;
+  left:          0;
+  right:         0;
+  z-index:       1000;
+  background:    #000000;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  height:        80px;
+  display:       flex;
+  align-items:   center;
+}
+
+.nav-inner {
+  width:           100%;
+  max-width:       1200px;
+  margin:          0 auto;
+  padding:         0 32px;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             24px;
+}
+
+.nav-logo img { height: 62px; width: auto; }
+
+.nav-links {
+  display:     flex;
+  align-items: center;
+  gap:         28px;
+  list-style:  none;
+}
+
+.nav-links a {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      15px;
+  font-weight:    700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:          rgba(255,255,255,0.75);
+  transition:     color 0.2s;
+  white-space:    nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--green); }
+.nav-links a.nav-green { color: var(--green); }
+
+.hamburger {
+  width:           52px;
+  height:          52px;
+  background:      #1a1a1a;
+  border:          1px solid rgba(255,255,255,0.1);
+  border-radius:   8px;
+  display:         none;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             6px;
+  cursor:          pointer;
+  transition:      background 0.2s;
+  flex-shrink:     0;
+}
+
+.hamburger:hover { background: #2a2a2a; }
+
+.hamburger span {
+  display:       block;
+  width:         22px;
+  height:        2px;
+  background:    #fff;
+  border-radius: 2px;
+  transition:    all 0.3s;
+}
+
+/* ══ MOBILE MENU ══ */
+.mobile-menu {
+  position:       fixed;
+  inset:          0;
+  z-index:        2000;
+  background:     #000000;
+  display:        flex;
+  flex-direction: column;
+  padding:        0;
+  transform:      translateX(100%);
+  transition:     transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  overflow:       hidden;
+}
+
+.mobile-menu.open { transform: translateX(0); }
+
+.menu-header {
+  height:          80px;
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  border-bottom:   1px solid rgba(255,255,255,0.07);
+  flex-shrink:     0;
+  padding:         0 32px;
+}
+
+.menu-logo img { height: 56px; width: auto; }
+
+.menu-close {
+  width:           52px;
+  height:          52px;
+  background:      #1a1a1a;
+  border:          1px solid rgba(255,255,255,0.1);
+  border-radius:   8px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  cursor:          pointer;
+  font-size:       20px;
+  color:           #fff;
+  transition:      all 0.2s;
+  font-family:     'Barlow Condensed', sans-serif;
+  font-weight:     700;
+}
+
+.menu-close:hover { background: var(--green); color: #000; }
+
+.menu-nav {
+  flex:           1;
+  overflow-y:     auto;
+  padding:        16px 32px 24px;
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+}
+
+.menu-nav a {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(28px, 4.5vw, 42px);
+  font-weight:    900;
+  color:          #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding:        12px 0;
+  border-bottom:  1px solid rgba(255,255,255,0.05);
+  transition:     color 0.2s, padding-left 0.25s;
+  display:        block;
+  white-space:    nowrap;
+}
+
+.menu-nav a:hover      { color: var(--green); padding-left: 16px; }
+.menu-nav a.ciap-link  { color: var(--green); }
+.menu-nav a.ciap-link:hover { color: #fff; }
+
+.menu-footer-note {
+  padding:        16px 32px;
+  border-top:     1px solid rgba(255,255,255,0.06);
+  font-size:      12px;
+  color:          rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink:    0;
+}
+
+/* ══ S1 — HERO ══ */
+#hero {
+  min-height: 100vh;
+  background: var(--hero-navy);
+  padding:    150px 0 100px;
+  display:    flex;
+  align-items: center;
+  position:   relative;
+  overflow:   hidden;
+}
+
+.hero-grid-bg {
+  position:         absolute;
+  inset:            0;
+  background-image: linear-gradient(rgba(62,207,110,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(62,207,110,0.02) 1px, transparent 1px);
+  background-size:  60px 60px;
+  pointer-events:   none;
+}
+
+.hero-glow-1 {
+  position:       absolute;
+  top:            -10%;
+  right:          -8%;
+  width:          750px;
+  height:         750px;
+  background:     radial-gradient(circle, rgba(62,207,110,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position:       absolute;
+  bottom:         -10%;
+  left:           -5%;
+  width:          500px;
+  height:         500px;
+  background:     radial-gradient(circle, rgba(155,89,255,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ciap-badge-top {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            10px;
+  border:         1px solid rgba(62,207,110,0.35);
+  border-radius:  100px;
+  padding:        10px 24px;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  28px;
+  font-family:    'Barlow', sans-serif;
+}
+
+.badge-dot {
+  width:         7px;
+  height:        7px;
+  background:    var(--green);
+  border-radius: 50%;
+  animation:     pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.6); }
+}
+
+.ciap-logo-wrap {
+  margin-bottom: 24px;
+  display:       inline-block;
+}
+
+.ciap-creative {
+  position: relative;
+  display:  inline-block;
+}
+
+.ciap-letters {
+  font-family:              'Righteous', cursive;
+  font-size:                clamp(88px, 16vw, 180px);
+  font-weight:              400;
+  line-height:              0.9;
+  letter-spacing:           -0.02em;
+  background:               linear-gradient(135deg, #3ecf6e 0%, #a8ff78 35%, #3ecf6e 60%, #1aff7a 100%);
+  -webkit-background-clip:  text;
+  -webkit-text-fill-color:  transparent;
+  background-clip:          text;
+  filter:                   drop-shadow(0 0 40px rgba(62,207,110,0.4));
+  display:                  block;
+}
+
+.ciap-tag {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            6px;
+  background:     rgba(62,207,110,0.1);
+  border:         1px solid rgba(62,207,110,0.25);
+  border-radius:  6px;
+  padding:        6px 14px;
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      13px;
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-top:     10px;
+}
+
+.ciap-floating { position: absolute; pointer-events: none; }
+
+.ciap-float-1 { top: -10px; right: -30px; font-size: 28px; animation: float1 3s ease-in-out infinite; }
+.ciap-float-2 { bottom: 20px; right: -40px; font-size: 22px; animation: float2 3.5s ease-in-out infinite; }
+.ciap-float-3 { top: 30%; left: -40px; font-size: 24px; animation: float3 4s ease-in-out infinite; }
+.ciap-float-4 { bottom: -44px; left: 30%; font-size: 20px; animation: float1 2.8s ease-in-out infinite; }
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(8deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(-10deg); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(6deg); }
+}
+
+.hero-title {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(22px, 3vw, 34px);
+  font-weight:    700;
+  text-transform: uppercase;
+  color:          rgba(255,255,255,0.75);
+  letter-spacing: 0.08em;
+  margin-bottom:  20px;
+  margin-top:     8px;
+}
+
+.hero-sub {
+  font-size:     clamp(17px, 1.8vw, 20px);
+  color:         rgba(255,255,255,0.6);
+  max-width:     580px;
+  line-height:   1.8;
+  margin-bottom: 48px;
+  font-weight:   300;
+}
+
+.hero-ctas {
+  display:       flex;
+  gap:           16px;
+  flex-wrap:     wrap;
+  margin-bottom: 72px;
+}
+
+.hero-stats {
+  display:      flex;
+  border:       1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow:     hidden;
+  max-width:    620px;
+}
+
+.hero-stat {
+  flex:         1;
+  padding:      24px 16px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  text-align:   center;
+}
+
+.hero-stat:last-child { border-right: none; }
+
+.hs-num {
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     clamp(20px, 2.8vw, 30px);
+  font-weight:   900;
+  color:         var(--green);
+  line-height:   1;
+  margin-bottom: 6px;
+}
+
+.hs-label {
+  font-size:      10px;
+  color:          rgba(255,255,255,0.32);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ══ SECTIONS ══ */
+.sec-dark {
+  background: #000000;
+  color:      #fff;
+  padding:    108px 0;
+}
+
+.sec-dark h2 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(36px, 5vw, 64px);
+  font-weight:    900;
+  text-transform: uppercase;
+  line-height:    1.04;
+  color:          #fff;
+  margin-bottom:  24px;
+}
+
+.sec-dark h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(22px, 2.8vw, 32px);
+  font-weight:    800;
+  color:          #fff;
+  margin-bottom:  14px;
+  text-transform: uppercase;
+}
+
+.sec-dark p {
+  color:         rgba(255,255,255,0.62);
+  font-size:     clamp(16px, 1.4vw, 18px);
+  line-height:   1.82;
+  margin-bottom: 18px;
+}
+
+.sec-dark p strong { color: #fff; font-weight: 600; }
+
+.sec-light {
+  background: #ffffff;
+  color:      #111;
+  padding:    108px 0;
+}
+
+.sec-light h2 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(36px, 5vw, 64px);
+  font-weight:    900;
+  text-transform: uppercase;
+  line-height:    1.04;
+  color:          #111;
+  margin-bottom:  24px;
+}
+
+.sec-light p {
+  color:         #444;
+  font-size:     clamp(16px, 1.4vw, 18px);
+  line-height:   1.82;
+  margin-bottom: 18px;
+}
+
+.sec-light p strong { color: #111; font-weight: 600; }
+
+.sec-grey {
+  background: #f2f2f2;
+  color:      #111;
+  padding:    108px 0;
+}
+
+/* ══ CARDS ══ */
+.card-d {
+  background:  #111111;
+  border:      1px solid #222;
+  border-radius: 12px;
+  padding:     30px;
+  transition:  border-color 0.2s, transform 0.22s;
+}
+
+.card-d:hover { border-color: var(--green); transform: translateY(-4px); }
+
+.card-d .ci {
+  font-size:     30px;
+  margin-bottom: 18px;
+  display:       block;
+}
+
+.card-d h4 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(17px, 1.5vw, 20px);
+  font-weight:    700;
+  color:          #fff;
+  margin-bottom:  10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-d p {
+  color:       #888;
+  font-size:   clamp(14px, 1.2vw, 16px);
+  line-height: 1.72;
+  margin:      0;
+}
+
+.card-l {
+  background:    #fff;
+  border-left:   4px solid var(--green);
+  border-radius: 0 12px 12px 0;
+  padding:       30px 30px 30px 26px;
+  box-shadow:    0 2px 18px rgba(0,0,0,0.06);
+  transition:    transform 0.22s, box-shadow 0.22s;
+  border-top:    1px solid #eee;
+  border-right:  1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.card-l:hover {
+  transform:  translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.card-l .ci {
+  font-size:     28px;
+  margin-bottom: 16px;
+  display:       block;
+}
+
+.card-l h4 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(17px, 1.5vw, 20px);
+  font-weight:    700;
+  color:          #111;
+  margin-bottom:  10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-l p {
+  color:       #555;
+  font-size:   clamp(14px, 1.2vw, 16px);
+  line-height: 1.72;
+  margin:      0;
+}
+
+.card-grant {
+  background:    linear-gradient(135deg, rgba(62,207,110,0.1) 0%, rgba(62,207,110,0.04) 100%);
+  border:        2px solid rgba(62,207,110,0.35);
+  border-radius: 14px;
+  padding:       36px;
+  position:      relative;
+  overflow:      hidden;
+}
+
+.card-grant::before {
+  content:     '\01F3C6';
+  position:    absolute;
+  top:         -10px;
+  right:       20px;
+  font-size:   80px;
+  opacity:     1;
+  line-height: 1;
+  filter:      drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+
+.card-grant h4 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(18px, 1.8vw, 22px);
+  font-weight:    900;
+  color:          var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom:  12px;
+}
+
+.card-grant p {
+  font-size:     clamp(14px, 1.2vw, 16px);
+  color:         #333;
+  line-height:   1.75;
+  margin-bottom: 14px;
+}
+
+.card-grant p:last-child { margin: 0; }
+
+.grant-amounts {
+  display:    flex;
+  gap:        16px;
+  margin-top: 16px;
+  flex-wrap:  wrap;
+}
+
+.grant-tier {
+  flex:          1;
+  min-width:     140px;
+  background:    #2a2a2a;
+  border:        1px solid rgba(62,207,110,0.3);
+  border-radius: 10px;
+  padding:       16px;
+  text-align:    center;
+}
+
+.grant-tier-num {
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     clamp(22px, 2.5vw, 30px);
+  font-weight:   900;
+  color:         var(--green);
+  display:       block;
+  line-height:   1;
+  margin-bottom: 4px;
+}
+
+.grant-tier-label {
+  font-size:      11px;
+  color:          #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ══ GRIDS ══ */
+.grid-2 {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   72px;
+  align-items:           start;
+}
+
+.grid-2-center {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   72px;
+  align-items:           center;
+}
+
+.grid-3 {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   20px;
+}
+
+.grid-2c {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   20px;
+}
+
+/* ══ QUOTE BLOCKS ══ */
+.quote-block {
+  background:    rgba(62,207,110,0.07);
+  border:        1px solid rgba(62,207,110,0.2);
+  border-left:   4px solid var(--green);
+  border-radius: 0 12px 12px 0;
+  padding:       30px 30px 30px 26px;
+  margin-bottom: 24px;
+}
+
+.quote-block p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:   clamp(17px, 1.8vw, 22px);
+  font-weight: 700;
+  color:       #111;
+  line-height: 1.45;
+  margin:      0;
+}
+
+.pull-dark {
+  border-left:   4px solid var(--green);
+  padding:       24px 28px;
+  background:    #111;
+  border-radius: 0 10px 10px 0;
+  margin:        32px 0;
+}
+
+.pull-dark p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:   clamp(18px, 2vw, 23px);
+  font-weight: 700;
+  font-style:  italic;
+  color:       #fff;
+  margin:      0;
+  line-height: 1.4;
+}
+
+.now-pull-green {
+  background:    var(--green);
+  border-radius: 14px;
+  padding:       40px;
+  margin:        40px auto;
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     clamp(20px, 2.5vw, 30px);
+  font-weight:   900;
+  font-style:    italic;
+  color:         #000;
+  line-height:   1.4;
+  text-align:    center;
+  max-width:     760px;
+}
+
+/* ══ LEARN ITEMS ══ */
+.learn-item {
+  display:     flex;
+  align-items: flex-start;
+  gap:         24px;
+  padding:     28px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.learn-item:last-child { border: none; }
+
+.learn-num {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(36px, 4vw, 50px);
+  font-weight:    900;
+  color:          #6ddb95;
+  line-height:    1;
+  flex-shrink:    0;
+  width:          60px;
+  letter-spacing: -0.03em;
+}
+
+.learn-text h4 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(18px, 1.6vw, 21px);
+  font-weight:    800;
+  color:          #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom:  8px;
+}
+
+.learn-text p {
+  font-size:   clamp(14px, 1.2vw, 16px);
+  color:       #444;
+  margin:      0;
+  line-height: 1.72;
+}
+
+/* ══ STEPS ══ */
+.steps-wrap { max-width: 840px; margin: 0 auto; }
+
+.step {
+  display:               grid;
+  grid-template-columns: 70px 1fr;
+  position:              relative;
+}
+
+.step:not(:last-child)::after {
+  content:    '';
+  position:   absolute;
+  left:       34px;
+  top:        62px;
+  bottom:     0;
+  width:      2px;
+  background: linear-gradient(to bottom, rgba(62,207,110,0.4), transparent);
+}
+
+.step-left {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+.step-circle {
+  width:         58px;
+  height:        58px;
+  border-radius: 50%;
+  border:        2px solid var(--green);
+  background:    #fff;
+  display:       grid;
+  place-items:   center;
+  font-family:   'Barlow Condensed', sans-serif;
+  font-size:     20px;
+  font-weight:   900;
+  color:         var(--green);
+  flex-shrink:   0;
+}
+
+.step-body { padding: 0 0 56px 28px; }
+
+.step-tag {
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  8px;
+}
+
+.step-body h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(20px, 2vw, 27px);
+  font-weight:    900;
+  text-transform: uppercase;
+  color:          #111;
+  margin-bottom:  12px;
+  letter-spacing: 0.02em;
+}
+
+.step-body p {
+  font-size:   clamp(14px, 1.2vw, 17px);
+  color:       #555;
+  line-height: 1.82;
+  margin:      0;
+}
+
+/* ══ ANIMATED CIAP BOUNCE ══ */
+.ciap-bounce {
+  display:                 inline-block;
+  color:                   var(--green);
+  animation-name:          ciap-jump;
+  animation-duration:      0.7s;
+  animation-timing-function: cubic-bezier(0.36,0.07,0.19,0.97);
+  animation-iteration-count: infinite;
+  animation-play-state:    paused;
+}
+
+.ciap-bounce.bouncing { animation-play-state: running; }
+
+@keyframes ciap-jump {
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(-36px); }
+  40%  { transform: translateY(0); }
+  55%  { transform: translateY(-14px); }
+  70%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+/* ══ GRANT CRITERIA ══ */
+.grant-criteria {
+  display:        flex;
+  flex-direction: column;
+  gap:            12px;
+  margin-top:     28px;
+}
+
+.grant-crit {
+  display:     flex;
+  align-items: flex-start;
+  gap:         14px;
+  padding:     16px 20px;
+  background:  rgba(62,207,110,0.05);
+  border:      1px solid rgba(62,207,110,0.15);
+  border-radius: 10px;
+}
+
+.grant-crit-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+.grant-crit p {
+  font-size:   clamp(14px, 1.2vw, 16px);
+  color:       rgba(255,255,255,0.72);
+  margin:      0;
+  line-height: 1.6;
+}
+
+.grant-crit strong { color: #fff; }
+
+/* ══ NOTICE ══ */
+.notice {
+  background:    #111;
+  border:        1px solid rgba(232,116,74,0.3);
+  border-radius: 10px;
+  padding:       24px 28px;
+  display:       flex;
+  align-items:   flex-start;
+  gap:           14px;
+}
+
+.notice-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+.notice p {
+  font-size:   clamp(14px, 1.2vw, 16px);
+  color:       rgba(232,116,74,0.9);
+  margin:      0;
+  line-height: 1.7;
+}
+
+.notice strong { color: #e8744a; }
+
+/* ══ CTA ══ */
+.cta-inner { text-align: center; max-width: 700px; margin: 0 auto; }
+
+.cta-inner h2         { color: #fff; margin-bottom: 20px; }
+.cta-inner > p {
+  color:         rgba(255,255,255,0.6);
+  font-size:     clamp(16px, 1.4vw, 18px);
+  line-height:   1.82;
+  margin-bottom: 48px;
+}
+
+.cta-benefits {
+  display:         flex;
+  justify-content: center;
+  gap:             28px;
+  flex-wrap:       wrap;
+  margin-bottom:   48px;
+}
+
+.cb {
+  display:     flex;
+  align-items: center;
+  gap:         9px;
+  font-size:   clamp(13px, 1.1vw, 15px);
+  color:       rgba(255,255,255,0.52);
+}
+
+.cb-ico {
+  width:         18px;
+  height:        18px;
+  background:    rgba(62,207,110,0.15);
+  border-radius: 50%;
+  display:       grid;
+  place-items:   center;
+  font-size:     9px;
+  color:         var(--green);
+  font-weight:   800;
+  flex-shrink:   0;
+}
+
+.cta-box {
+  background:     #111;
+  border:         1px solid #222;
+  border-radius:  16px;
+  padding:        52px 44px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            20px;
+}
+
+.cta-box h3 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(24px, 2.5vw, 30px);
+  font-weight:    900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color:          #fff;
+  text-align:     center;
+}
+
+.cta-box > p {
+  font-size:   clamp(14px, 1.2vw, 16px);
+  color:       #555;
+  text-align:  center;
+  max-width:   500px;
+  line-height: 1.7;
+  margin:      0;
+}
+
+/* ══ FAQ ══ */
+.faq-header {
+  text-align:    center;
+  max-width:     560px;
+  margin:        0 auto 60px;
+}
+
+.faq-header h2 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(38px, 5vw, 62px);
+  font-weight:    900;
+  text-transform: uppercase;
+  color:          #111111;
+  margin-bottom:  14px;
+}
+
+.faq-header p { font-size: clamp(14px, 1.2vw, 17px); color: #555; }
+
+.faq-list {
+  max-width:      900px;
+  margin:         0 auto;
+  display:        flex;
+  flex-direction: column;
+  gap:            12px;
+}
+
+.faq-item {
+  background:    #fff;
+  border-radius: 12px;
+  overflow:      hidden;
+  border:        1px solid #e0e0e0;
+  transition:    border-color 0.2s;
+}
+
+.faq-item:hover { border-color: rgba(62,207,110,0.3); }
+.faq-item.open  { border-color: rgba(62,207,110,0.45); }
+
+.faq-q {
+  width:           100%;
+  background:      none;
+  border:          none;
+  padding:         24px 30px;
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  gap:             16px;
+  cursor:          pointer;
+  text-align:      left;
+  font-family:     'Barlow Condensed', sans-serif;
+  font-size:       clamp(16px, 1.5vw, 19px);
+  font-weight:     700;
+  text-transform:  uppercase;
+  letter-spacing:  0.04em;
+  color:           #111;
+  transition:      color 0.2s;
+}
+
+.faq-q:hover,
+.faq-item.open .faq-q { color: var(--green); }
+
+.faq-plus {
+  width:         28px;
+  height:        28px;
+  border-radius: 50%;
+  border:        1.5px solid #ccc;
+  display:       grid;
+  place-items:   center;
+  flex-shrink:   0;
+  font-size:     18px;
+  color:         #888;
+  transition:    all 0.25s;
+  line-height:   1;
+}
+
+.faq-item.open .faq-plus {
+  border-color: var(--green);
+  color:        var(--green);
+  background:   rgba(62,207,110,0.08);
+  transform:    rotate(45deg);
+}
+
+.faq-ans {
+  max-height: 0;
+  overflow:   hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-item.open .faq-ans { max-height: 500px; }
+
+.faq-ans-inner {
+  padding:     0 30px 26px;
+  font-size:   clamp(14px, 1.2vw, 16px);
+  color:       #555;
+  line-height: 1.82;
+  border-top:  1px solid #f0f0f0;
+  padding-top: 22px;
+}
+
+/* ══ FOOTER ══ */
+footer {
+  background:  #000000;
+  border-top:  1px solid rgba(255,255,255,0.06);
+  padding:     80px 0 0;
+}
+
+.footer-grid {
+  display:               grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap:                   56px;
+  margin-bottom:         56px;
+}
+
+.footer-brand img {
+  height:        68px;
+  width:         auto;
+  margin-bottom: 20px;
+}
+
+.footer-tagline {
+  font-size:     clamp(13px, 1.1vw, 15px);
+  color:         rgba(255,255,255,0.36);
+  line-height:   1.78;
+  margin-bottom: 28px;
+  max-width:     290px;
+}
+
+.social-row {
+  display:   flex;
+  gap:       10px;
+  flex-wrap: wrap;
+}
+
+.soc-btn {
+  width:         46px;
+  height:        46px;
+  border-radius: 10px;
+  display:       grid;
+  place-items:   center;
+  transition:    all 0.2s;
+  text-decoration: none;
+  border:        none;
+  cursor:        pointer;
+  flex-shrink:   0;
+}
+
+.soc-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.soc-instagram:hover {
+  transform:  translateY(-3px);
+  box-shadow: 0 8px 24px rgba(220,39,67,0.4);
+}
+
+.soc-x {
+  background: #000;
+  border:     1px solid #333;
+}
+
+.soc-x:hover {
+  background:  #111;
+  transform:   translateY(-3px);
+  box-shadow:  0 8px 24px rgba(255,255,255,0.1);
+}
+
+.soc-facebook { background: #1877F2; }
+
+.soc-facebook:hover {
+  background:  #0d65d9;
+  transform:   translateY(-3px);
+  box-shadow:  0 8px 24px rgba(24,119,242,0.4);
+}
+
+.soc-tiktok {
+  background: #000;
+  border:     1px solid #333;
+}
+
+.soc-tiktok:hover {
+  transform:  translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255,0,80,0.3);
+}
+
+.soc-whatsapp { background: #25D366; }
+
+.soc-whatsapp:hover {
+  background:  #1dbb5b;
+  transform:   translateY(-3px);
+  box-shadow:  0 8px 24px rgba(37,211,102,0.4);
+}
+
+.footer-col h5 {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(12px, 1vw, 15px);
+  font-weight:    700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color:          var(--green);
+  margin-bottom:  24px;
+  text-align:     left;
+}
+
+.footer-col ul {
+  list-style:     none;
+  display:        flex;
+  flex-direction: column;
+  gap:            14px;
+  text-align:     left;
+  padding-left:   0;
+  margin-left:    0;
+}
+
+.footer-col ul li a {
+  font-size:  clamp(13px, 1.1vw, 15px);
+  color:      rgba(255,255,255,0.48);
+  transition: color 0.2s;
+  text-align: left;
+  display:    block;
+}
+
+.footer-col ul li a:hover { color: var(--green); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding:    28px 0 34px;
+}
+
+.footer-bottom-inner {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            12px;
+  text-align:     center;
+}
+
+.footer-copy  { font-size: 13px; color: rgba(255,255,255,0.2); }
+
+.footer-motto {
+  font-family:    'Barlow Condensed', sans-serif;
+  font-size:      clamp(14px, 2vw, 22px);
+  font-weight:    900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--green);
+  opacity:        0.6;
+}
+
+/* ══ FADE ANIMATIONS ══ */
+.fade-up {
+  opacity:    0;
+  transform:  translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-up.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* ══ RESPONSIVE ══ */
+@media (min-width: 1025px) {
+  .hamburger { display: none !important; }
+  .nav-links { display: flex; }
+  .sec-dark p         { font-size: 19px; }
+  .sec-light p        { font-size: 19px; }
+  .card-d p           { font-size: 16px; }
+  .card-l p           { font-size: 16px; }
+  .learn-text p       { font-size: 17px; }
+  .step-body p        { font-size: 17px; }
+  .faq-ans-inner      { font-size: 17px; }
+  .footer-tagline     { font-size: 16px; }
+  .footer-col ul li a { font-size: 15px; }
+  .cb                 { font-size: 15px; }
+  .hero-title   { text-align: center; }
+  .hero-sub     { text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .hero-ctas    { justify-content: center; }
+  .hero-stats   { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 1024px) {
+  .nav-links      { display: none; }
+  .hamburger      { display: flex; }
+  .footer-grid    { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .grid-2, .grid-2-center { grid-template-columns: 1fr; gap: 40px; }
+  .grid-3         { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-2c        { grid-template-columns: 1fr; }
+  .grant-amounts  { flex-direction: row; }
+}
+
+@media (max-width: 768px) {
+  .container                { padding: 0 20px; }
+  .sec-dark, .sec-light, .sec-grey { padding: 80px 0; }
+  header                    { height: 72px; }
+  .nav-inner                { padding: 0 20px; }
+  .nav-logo img             { height: 54px; }
+  .grid-3                   { grid-template-columns: 1fr; }
+  .hero-stats               { flex-direction: column; max-width: 100%; }
+  .hero-stat                { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .hero-stat:last-child     { border-bottom: none; }
+  .footer-grid              { grid-template-columns: 1fr; gap: 32px; }
+  .hero-ctas                { flex-direction: column; align-items: flex-start; }
+  .hero-ctas .btn-green     { width: 100%; justify-content: center; }
+  .cta-box                  { padding: 36px 20px; }
+  .menu-header              { padding: 0 20px; }
+  .menu-nav                 { padding: 12px 20px 20px; }
+  .menu-footer-note         { padding: 14px 20px; }
+  .grant-amounts            { flex-direction: column; }
+  .learn-item               { gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .container    { padding: 0 16px; }
+  .ciap-letters { font-size: clamp(72px, 18vw, 120px); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/vision/">Vision</a></li>
+      <li><a href="/pillars/">Pillars</a></li>
+      <li><a href="/agenda/">Agenda</a></li>
+      <li><a href="/join/">Join</a></li>
+      <li><a href="/ciap-program/" class="nav-green active">CIAP Program</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ════ MOBILE MENU ════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="menu-header">
+    <a href="/" class="menu-logo">
+      <img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria">
+    </a>
+    <button class="menu-close" id="menuClose">&#10005;</button>
+  </div>
+  <nav class="menu-nav">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/vision/">Vision</a>
+    <a href="/pillars/">Pillars</a>
+    <a href="/agenda/">Agenda</a>
+    <a href="/join/">Join</a>
+    <a href="/ciap-program/" class="ciap-link active">CIAP Program</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="menu-footer-note">&copy; 2026 The Movement Nigeria</div>
+</div>
+
+<!-- ════ S1 — HERO ════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="ciap-badge-top"><span class="badge-dot"></span>A TMN Flagship Program</div>
+    <div class="ciap-logo-wrap">
+      <div class="ciap-creative">
+        <span class="ciap-letters">CIAP</span>
+        <div class="ciap-tag">Civic Influencer Accelerator Program</div>
+        <span class="ciap-floating ciap-float-1">&#127897;</span>
+        <span class="ciap-floating ciap-float-2">&#10024;</span>
+        <span class="ciap-floating ciap-float-3">&#128241;</span>
+        <span class="ciap-floating ciap-float-4">&#128293;</span>
+      </div>
+    </div>
+    <h2 class="hero-title">Welcome to the Movement That Trains Nigeria&rsquo;s Voices</h2>
+    <p class="hero-sub">Join a structured 3-month program that turns passionate Nigerians into disciplined, credible, and impactful civic influencers &mdash; equipped to speak, earn, and lead.</p>
+    <div class="hero-ctas">
+      <a href="/ciap-register/" class="btn-green">Join Early Access &#8594;</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">10,000</div><div class="hs-label">Target Participants</div></div>
+      <div class="hero-stat"><div class="hs-num">3 Months</div><div class="hs-label">Program Duration</div></div>
+      <div class="hero-stat"><div class="hs-num">&#8358;250K+</div><div class="hs-label">Training Value &mdash; TMN Pays</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S2 — WHAT IS CIAP ════ -->
+<section id="what" class="sec-light">
+  <div class="container">
+    <div class="grid-2">
+      <div class="fade-up">
+        <div class="section-label">The Program</div>
+        <h2>What <span class="green-text">CIAP</span> Is</h2>
+        <div class="quote-block">
+          <p>CIAP is not a random influencer course. It is a purpose-built civic communications accelerator training serious digital voices for Nigeria&rsquo;s future.</p>
+        </div>
+        <p>The <strong>Civic Influencer Accelerator Program (CIAP)</strong> is a TMN-powered initiative designed to train, equip, and launch the next generation of disciplined Nigerian civic influencers. Whether you are already creating content or just starting, CIAP gives you the tools, the knowledge, and the community to do it seriously.</p>
+        <p>CIAP is not about chasing followers. It is about building <strong>real influence</strong> &mdash; the kind that shapes conversations, earns money, and moves Nigeria forward.</p>
+        <p>The Movement Nigeria is <strong>backing and paying for this 3-month program</strong>. You only cover a small registration fee. The course, the mentorship, the community &mdash; all of it is backed and paid by TMN.</p>
+      </div>
+      <div class="fade-up">
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px;">
+          <div class="card-l"><span class="ci">&#127891;</span><h4>TMN-Backed Scholarship</h4><p>The Movement Nigeria covers the cost of your 3-month training &mdash; worth between &#8358;250,000 and &#8358;350,000 per participant. TMN pays. You show up.</p></div>
+          <div class="card-l"><span class="ci">&#128241;</span><h4>Practical Influencer Skills</h4><p>Real training on content creation, monetisation, niche selection, audience building, and civic storytelling that actually works.</p></div>
+          <div class="card-l"><span class="ci">&#127963;</span><h4>Civic Purpose + Community</h4><p>You join Nigeria&rsquo;s largest civic movement &mdash; a ready-made community that supports your content, engages your audience, and amplifies your voice from day one.</p></div>
+          <div class="card-l"><span class="ci">&#127942;</span><h4>Prize Grants for Top Graduates</h4><p>The top 10&ndash;20 best graduates receive a TMN Prize Grant of &#8358;1M&ndash;&#8358;2M each to fuel their influencer career after the program.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S3 — WHY JOIN ════ -->
+<section id="why" class="sec-dark">
+  <div class="container">
+    <div class="grid-2-center">
+      <div class="fade-up">
+        <div class="pull-dark"><p>&ldquo;Nigeria needs more than loud voices. It needs trained, disciplined, and credible civic communicators.&rdquo;</p></div>
+        <div class="pull-dark" style="border-color:var(--orange);margin-top:0;"><p style="color:rgba(232,116,74,0.9);font-size:clamp(16px,1.6vw,20px);">&ldquo;Most influencers know how to post. Very few know how to build audiences that last, earn consistently, and actually move people to action.&rdquo;</p></div>
+      </div>
+      <div class="fade-up">
+        <div class="section-label">Why Join</div>
+        <h2>Why <span class="green-text">CIAP</span> Exists</h2>
+        <p>Nigeria has millions of content creators. But most are creating without direction &mdash; chasing trends, struggling to monetise, and making zero lasting impact.</p>
+        <p>CIAP exists because The Movement Nigeria believes that <strong>influence is a skill</strong> &mdash; and like every skill, it can be taught, structured, and improved.</p>
+        <p>If you are already an influencer, CIAP helps you go further, earn more, and build something that lasts. If you are not yet an influencer, <strong>CIAP is your structured entry point.</strong></p>
+        <p>And because you will be part of the TMN community, you will never be building alone. Every piece of content you create will have a ready community behind it &mdash; engaging, sharing, and supporting your voice from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S4 — WHAT YOU WILL LEARN ════ -->
+<section id="learn" class="sec-light">
+  <div class="container">
+    <div class="fade-up" style="max-width:620px;margin-bottom:56px;">
+      <div class="section-label">The Curriculum</div>
+      <h2>What You Will <span class="green-text">Learn</span></h2>
+      <p>Eight powerful learning areas across 3 months &mdash; all designed to make you a credible, confident, and earning civic influencer.</p>
+    </div>
+    <div class="grid-2" style="gap:0;">
+      <div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">01</div>
+          <div class="learn-text"><h4>Civic Storytelling</h4><p>How to explain public issues &mdash; governance, policy, and national affairs &mdash; in language everyday Nigerians understand and care about.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">02</div>
+          <div class="learn-text"><h4>Niche Selection &amp; Expansion</h4><p>How to choose the right niche for your voice, own it completely, and expand from it into broader influence over time.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">03</div>
+          <div class="learn-text"><h4>Content Creation Skills</h4><p>Short-form and long-form content &mdash; hooks, scripts, captions, video structure, comment management, and platform-specific strategies.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">04</div>
+          <div class="learn-text"><h4>Audience Development</h4><p>How to build real, loyal audiences based on trust and consistency &mdash; not empty virality or bought followers that disappear.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">05</div>
+          <div class="learn-text"><h4>Monetisation Strategies</h4><p>How to turn your influence into income &mdash; brand deals, community monetisation, digital products, and sustainable earning as a creator.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">06</div>
+          <div class="learn-text"><h4>Fact-Checking &amp; Responsibility</h4><p>How to verify information before publishing, avoid misinformation, and build a reputation for accuracy and credibility.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">07</div>
+          <div class="learn-text"><h4>Digital Courage &amp; Ethics</h4><p>How to speak boldly on important issues without crossing into recklessness, defamation, or content that damages your brand.</p></div>
+        </div>
+        <div class="learn-item fade-up">
+          <div class="learn-num">08</div>
+          <div class="learn-text"><h4>Community Building</h4><p>How to build and lead your own engaged community &mdash; using TMN&rsquo;s national network as your personal launchpad from day one.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S5 — WHO IS IT FOR ════ -->
+<section id="who" class="sec-dark">
+  <div class="container">
+    <div class="fade-up" style="max-width:640px;margin-bottom:52px;">
+      <div class="section-label">Eligibility</div>
+      <h2>Who <span class="green-text">CIAP</span> Is For</h2>
+      <p style="color:rgba(255,255,255,0.6);">CIAP is open to any serious Nigerian who is ready to commit to 3 months of structured learning and civic engagement.</p>
+    </div>
+    <div class="grid-2c" style="margin-bottom:28px;">
+      <div class="card-d fade-up"><span class="ci">&#127897;</span><h4>Existing Influencers</h4><p>You are already creating content and want to grow further, monetise better, and build something that actually lasts beyond the trends.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#127793;</span><h4>Aspiring Influencers</h4><p>You have the passion and the voice but not yet the structure. CIAP is your structured starting point &mdash; built to turn aspiration into real influence.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#128227;</span><h4>Civic-Minded Nigerians</h4><p>You care about your country and want to use your voice to make a difference &mdash; not just post, but actually move people toward action.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#128161;</span><h4>Young Professionals &amp; Students</h4><p>You want to build a personal brand, develop communication skills, and enter the creator economy with a serious foundation under you.</p></div>
+    </div>
+    <div class="notice fade-up">
+      <span class="notice-icon">&#128204;</span>
+      <p><strong>CIAP is limited to 10,000 participants.</strong> Spaces will fill quickly. Join early access now to secure your place and receive your exclusive promo code before general enrollment opens.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S6 — HOW IT WORKS ════ -->
+<section id="how" class="sec-light">
+  <div class="container">
+    <div style="text-align:center;max-width:700px;margin:0 auto 72px;" class="fade-up">
+      <div class="section-label" style="justify-content:center;">The Process</div>
+      <h2 id="how-heading">HOW <span class="ciap-bounce" id="ciapBounce">CIAP</span> WORKS &mdash; STEP BY STEP</h2>
+      <p>Four simple steps from your decision to your transformation.</p>
+    </div>
+    <div class="steps-wrap">
+      <div class="step fade-up">
+        <div class="step-left"><div class="step-circle">01</div></div>
+        <div class="step-body">
+          <div class="step-tag">Right Now &mdash; Today</div>
+          <h3>Join Early Access</h3>
+          <p>Click &ldquo;Join Early Access&rdquo; and fill in your details on the registration page. It is completely free &mdash; no payment at this stage. Once you submit, check your email for your exclusive CIAP promo code.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-left"><div class="step-circle">02</div></div>
+        <div class="step-body">
+          <div class="step-tag">When Enrollment Opens</div>
+          <h3>Use Your Promo Code to Enroll</h3>
+          <p>When iNuud Institute opens CIAP enrollment, use your promo code to register at the early access rate. Your code is your key &mdash; without it, the standard (higher) registration fee applies.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-left"><div class="step-circle">03</div></div>
+        <div class="step-body">
+          <div class="step-tag">3 Months of Real Training</div>
+          <h3>Complete Your CIAP Training</h3>
+          <p>Go through your 3-month structured curriculum. Attend sessions, complete assignments, build your portfolio, and engage with your mentor and community throughout the journey. Your performance here determines your grant eligibility.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-left"><div class="step-circle">04</div></div>
+        <div class="step-body" style="padding-bottom:0;">
+          <div class="step-tag">Graduate &amp; Lead</div>
+          <h3>Graduate, Win Grants &amp; Lead</h3>
+          <p>Receive your CIAP certification. Top 10&ndash;20 graduates win TMN Prize Grants of &#8358;1M&ndash;&#8358;2M each. All graduates join TMN&rsquo;s civic influencer network &mdash; equipped, certified, and ready to lead public conversations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S7 — WHAT YOU GET ════ -->
+<section id="get" class="sec-dark">
+  <div class="container">
+    <div class="fade-up" style="max-width:580px;margin-bottom:52px;">
+      <div class="section-label">Benefits</div>
+      <h2>What You Get When You Join <span class="green-text">CIAP</span></h2>
+      <p style="color:rgba(255,255,255,0.6);">This is not just a course. It is a full ecosystem built to make you a serious, impactful, and earning civic influencer.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card-d fade-up"><span class="ci">&#128176;</span><h4>TMN-Funded Training</h4><p>The Movement Nigeria pays for your 3-month training &mdash; a program worth &#8358;250,000&ndash;&#8358;350,000. You only cover the small early-access registration fee.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#127891;</span><h4>iNuud Institute Certification</h4><p>Complete the program and receive a professional certification &mdash; a credible, verifiable signal of your skills and commitment as a civic communicator.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#129309;</span><h4>Mentorship Network</h4><p>Access to experienced mentors guiding your content strategy, brand development, and civic communication journey across the full 3 months.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#128227;</span><h4>Ready-Made Community</h4><p>Join TMN&rsquo;s national community. When you create content, your fellow CIAP graduates and TMN members engage, share, and amplify your voice instantly.</p></div>
+      <div class="card-d fade-up"><span class="ci">&#128184;</span><h4>Monetisation Framework</h4><p>Leave with a working monetisation plan &mdash; how to earn from brand deals, communities, digital products, and sustainable influence.</p></div>
+      <div class="card-d fade-up" style="border-color:rgba(62,207,110,0.35);background:rgba(62,207,110,0.06);">
+        <span class="ci">&#127942;</span>
+        <h4 style="color:var(--green);">TMN Prize Grant &mdash; Top Graduates</h4>
+        <p style="color:rgba(255,255,255,0.75);">The top 10&ndash;20 graduates from each cohort receive a TMN Prize Grant of <strong style="color:#fff;">&#8358;1,000,000 &ndash; &#8358;2,000,000</strong> each to invest in their influencer career &mdash; equipment, brand building, or whatever fuels their journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S8 — THE CIAP GRANT AWARD ════ -->
+<section id="grant" class="sec-light">
+  <div class="container">
+    <div class="grid-2-center">
+      <div class="fade-up">
+        <div class="section-label">The Prize</div>
+        <h2>The <span class="green-text">CIAP</span> Grant Award</h2>
+        <p>At the end of every CIAP cohort, The Movement Nigeria rewards the top 10 to 20 graduates with a <strong>Prize Grant</strong> to supercharge their influencer career. This is not a participation award. It is earned by the people who showed up hardest and performed best.</p>
+        <p>You earn your way into the grant through how seriously you take the program. Your grades, your community involvement, your attendance, your engagement &mdash; every action counts toward your ranking.</p>
+        <div class="card-grant fade-up" style="margin-top:28px;">
+          <h4>Prize Breakdown</h4>
+          <p style="color:#333;">From every cohort of 10,000 graduates, TMN selects the best 20:</p>
+          <div class="grant-amounts">
+            <div class="grant-tier">
+              <span class="grant-tier-num">&#8358;2M</span>
+              <span class="grant-tier-label">Top 10 Graduates</span>
+            </div>
+            <div class="grant-tier">
+              <span class="grant-tier-num">&#8358;1M</span>
+              <span class="grant-tier-label">Next 10 Graduates</span>
+            </div>
+          </div>
+          <p style="font-size:13px;color:#444;margin-top:14px;">Grant funds can be used freely &mdash; cameras, equipment, content tools, brand building, or anything that supports your influencer journey.</p>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div style="margin-bottom:20px;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,2vw,26px);font-weight:800;color:#111;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:20px;">How Winners Are Chosen</h3>
+          <p style="color:#555;font-size:clamp(14px,1.2vw,16px);">The selection is based on your overall performance throughout the 3-month program. Five criteria determine the top 20:</p>
+        </div>
+        <div class="grant-criteria">
+          <div class="grant-crit" style="background:rgba(62,207,110,0.05);border-color:rgba(62,207,110,0.15);">
+            <span class="grant-crit-icon">&#128202;</span>
+            <p style="color:#333;"><strong style="color:#111;">Academic Performance</strong> &mdash; Your quiz scores, assignment quality, and class assessments throughout the curriculum.</p>
+          </div>
+          <div class="grant-crit" style="background:rgba(62,207,110,0.05);border-color:rgba(62,207,110,0.15);">
+            <span class="grant-crit-icon">&#128197;</span>
+            <p style="color:#333;"><strong style="color:#111;">Seriousness &amp; Commitment</strong> &mdash; Consistent attendance, on-time submissions, and visible dedication to the program from week one to graduation.</p>
+          </div>
+          <div class="grant-crit" style="background:rgba(62,207,110,0.05);border-color:rgba(62,207,110,0.15);">
+            <span class="grant-crit-icon">&#129309;</span>
+            <p style="color:#333;"><strong style="color:#111;">Community Engagement</strong> &mdash; How actively you participate in the CIAP and TMN community &mdash; supporting peers, engaging in discussions, showing up.</p>
+          </div>
+          <div class="grant-crit" style="background:rgba(62,207,110,0.05);border-color:rgba(62,207,110,0.15);">
+            <span class="grant-crit-icon">&#127897;</span>
+            <p style="color:#333;"><strong style="color:#111;">Content Output</strong> &mdash; The quality and consistency of content you create and publish during the program period as part of your training.</p>
+          </div>
+          <div class="grant-crit" style="background:rgba(62,207,110,0.05);border-color:rgba(62,207,110,0.15);">
+            <span class="grant-crit-icon">&#127757;</span>
+            <p style="color:#333;"><strong style="color:#111;">Civic Mission Alignment</strong> &mdash; Demonstrated belief in, and contribution to, the civic mission that CIAP and TMN stand for throughout the program.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S9 — iNUUD INSTITUTE ════ -->
+<section id="institute" class="sec-dark">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;text-align:left;" class="fade-up">
+      <div class="section-label">The Training Partner</div>
+      <h2>iNuud Institute &mdash;<br>Your <span class="green-text">Learning Home</span></h2>
+      <p>The CIAP curriculum is designed and delivered by <strong>iNuud Institute</strong> &mdash; a structured learning academy dedicated to training serious, outcome-driven communicators and digital professionals.</p>
+      <p>iNuud Institute handles all formal aspects of the program: structured sessions, scheduled assignments, progress tracking, mentorship coordination, and final certification. When you enroll through CIAP, you are entering a disciplined academic environment &mdash; not a casual video library.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;max-width:680px;margin-left:auto;margin-right:auto;">
+        <div class="card-d"><span class="ci">&#128218;</span><h4>3-Month Curriculum</h4><p>Structured civic influencer training across 8 core learning areas built for real outcomes.</p></div>
+        <div class="card-d"><span class="ci">&#127909;</span><h4>Live + Recorded Sessions</h4><p>Professional instructors. Scheduled classes. Flexible recorded access so you never miss a session.</p></div>
+        <div class="card-d"><span class="ci">&#128221;</span><h4>Assessments &amp; Feedback</h4><p>Regular assignments with professional feedback to track your growth and improve week by week.</p></div>
+        <div class="card-d"><span class="ci">&#127941;</span><h4>Certified Completion</h4><p>Graduate with a verifiable iNuud Institute certification that proves your skills to the world.</p></div>
+      </div>
+      <p style="margin-top:28px;font-size:13px;color:#444;">iNuud Institute is operated by iNuud Analytics. CIAP is powered and funded by The Movement Nigeria. Both work together to deliver this program &mdash; with separate and clearly defined roles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S10 — TMN COMMUNITY ════ -->
+<section id="community" class="sec-light">
+  <div class="container">
+    <div style="text-align:center;max-width:700px;margin:0 auto 56px;" class="fade-up">
+      <div class="section-label" style="justify-content:center;">The TMN Advantage</div>
+      <h2>You Are Not Building <span class="green-text">Alone.</span></h2>
+      <p>Most influencers start with zero audience and zero support. CIAP graduates start inside a national civic movement that is already organized, already engaged, and already waiting to amplify your voice.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:40px;">
+      <div class="card-l fade-up" style="text-align:left;">
+        <div class="ci">&#128506;</div>
+        <h4>36 States + FCT</h4>
+        <p>TMN&rsquo;s community infrastructure spans every state in Nigeria &mdash; giving your content instant national reach the moment you graduate.</p>
+      </div>
+      <div class="card-l fade-up" style="text-align:left;">
+        <div class="ci">&#128242;</div>
+        <h4>Active Engagement Network</h4>
+        <p>When you post, your fellow CIAP graduates and TMN members engage &mdash; turning your individual voice into a collective movement of sound.</p>
+      </div>
+      <div class="card-l fade-up" style="text-align:left;">
+        <div class="ci">&#127942;</div>
+        <h4>Credibility Backing</h4>
+        <p>Being a CIAP graduate and part of TMN gives your voice instant credibility &mdash; you are not just a creator, you are a trained civic communicator.</p>
+      </div>
+    </div>
+    <div class="now-pull-green fade-up">&ldquo;When you create content as a CIAP graduate, you are not posting into silence. You are speaking to a movement.&rdquo;</div>
+  </div>
+</section>
+
+<!-- ════ S11 — CTA ════ -->
+<section id="register" class="sec-dark" style="border-top:1px solid #1a1a1a;">
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <div class="section-label" style="justify-content:center;">Your Move</div>
+      <h2>Spaces Are <span class="green-text">Limited.</span><br>Join Early Access Now.</h2>
+      <p>CIAP is open to 10,000 participants. When enrollment opens at iNuud Institute, early access members get in first with a promo code that unlocks the reduced registration fee. Join now before it fills up.</p>
+      <div class="cta-benefits">
+        <div class="cb"><div class="cb-ico">&#10003;</div>First to know when enrollment opens</div>
+        <div class="cb"><div class="cb-ico">&#10003;</div>Exclusive promo code sent to your email</div>
+        <div class="cb"><div class="cb-ico">&#10003;</div>Access the reduced registration fee</div>
+        <div class="cb"><div class="cb-ico">&#10003;</div>Eligible for the &#8358;1M&ndash;&#8358;2M Prize Grant</div>
+      </div>
+      <div class="cta-box">
+        <div style="font-size:42px;">&#127897;</div>
+        <h3>Ready to Build Your Voice?</h3>
+        <p>Click the button below to go to the CIAP registration page. Fill in your details &mdash; it takes less than 2 minutes. Your promo code will arrive in your email shortly after you submit.</p>
+        <a href="/ciap-register/" class="btn-green" style="font-size:19px;padding:20px 52px;">Join Early Access &#8594;</a>
+        <p>No payment on this step. Free to register. Your promo code unlocks the early-access &#8358;10,000 registration rate when enrollment opens at iNuud Institute.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ S12 — FAQ ════ -->
+<section id="faq" class="sec-grey">
+  <div class="container">
+    <div class="faq-header fade-up">
+      <div class="section-label" style="justify-content:center;">Questions Answered</div>
+      <h2>Frequently Asked<br>Questions</h2>
+      <p>Everything you need to know about CIAP before you join.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the Civic Influencer Accelerator Program (CIAP)?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">CIAP is a TMN-powered 3-month training program designed to build serious, disciplined, and credible civic influencers in Nigeria. It covers civic storytelling, content strategy, audience development, monetisation, and responsible digital influence. The training is delivered by iNuud Institute and fully backed and paid by The Movement Nigeria.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Who is CIAP for?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">CIAP is for any serious Nigerian who wants to build influence online &mdash; whether you are already creating content or starting from scratch. If you are passionate about your voice, your niche, your community, and your country &mdash; and you are ready to commit to 3 months of structured learning &mdash; CIAP is for you. You do not need a large following. You need the right mindset and the commitment to show up every week.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is CIAP really free?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">The 3-month training program is funded and backed by The Movement Nigeria &mdash; meaning TMN covers the course cost (valued at &#8358;250,000 to &#8358;350,000 per participant). Participants only pay a small registration fee when they officially enroll at iNuud Institute. For early access members who received the promo code, that fee is &#8358;10,000. Without the promo code, the standard fee applies and is significantly higher. The actual learning and mentorship are covered for you.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the &#8358;10,000 registration fee for?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">The &#8358;10,000 registration fee is paid to iNuud Institute when official enrollment opens &mdash; not on this page. It covers your formal registration into the program, your access to the learning platform, and your confirmed place in the cohort. This early-access rate is only available to members who received the promo code by email. Without the promo code, the standard registration fee (significantly higher) applies. After the &#8358;10,000, all training, mentorship, and certification is covered by TMN.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What will I learn in CIAP?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">The CIAP curriculum covers eight core areas: civic storytelling, niche selection and expansion, content creation (short and long form), audience development, monetisation strategies, fact-checking and responsible influence, digital courage and ethics, and community building. By the end of the 3 months, you will have the skills, the strategy, and the structure to operate as a credible and earning civic influencer.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I win a cash grant from CIAP?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">Yes. At the end of every CIAP cohort, The Movement Nigeria awards Prize Grants to the top 10 to 20 best-performing graduates. The top 10 graduates receive &#8358;2,000,000 each. The next 10 graduates receive &#8358;1,000,000 each. Winners are selected based on five criteria: academic performance throughout the program, seriousness and commitment, community engagement, content output quality, and alignment with the CIAP and TMN civic mission. Grant money is yours to use freely &mdash; equipment, content tools, brand building, or anything that supports your influencer journey.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long is the CIAP program?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">CIAP runs for 3 months (approximately 12 to 13 weeks). The program is structured with weekly sessions, assignments, and mentorship interactions. At the end of the 3 months, participants who complete the program and meet the assessment requirements receive their CIAP certification from iNuud Institute.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Who is teaching the CIAP program?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">The CIAP curriculum is delivered by iNuud Institute &mdash; a structured learning academy operated by iNuud Analytics. Instructors are professionals in digital communications, civic education, content strategy, and influence marketing. The program also includes mentorship from experienced practitioners who have built real audiences and credible digital careers.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the promo code and how does it work?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">When you join early access through this page, you will receive a unique promo code in your email shortly after submitting your registration. This code unlocks the &#8358;10,000 discounted registration fee when iNuud Institute opens official CIAP enrollment. When you arrive at the enrollment page, you enter your promo code at checkout and your fee is automatically reduced. Without this code, the standard rate applies. Check your spam folder if you do not receive it within a few hours.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to already be an influencer to join CIAP?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">No. CIAP is designed for both existing influencers and people who are just starting out. If you already create content, CIAP will help you go further, earn more, and build a civic dimension to your influence. If you are new, CIAP will give you the structured foundation to start correctly &mdash; with a real plan, a real niche, and a real community behind you from day one.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens after I complete the CIAP program?<span class="faq-plus">+</span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">After completing CIAP and receiving your iNuud Institute certification, you become a recognized CIAP graduate and a formal member of The Movement Nigeria&rsquo;s civic influencer network. This means continued access to the TMN community, national amplification of your content, and the credibility of being a trained civic communicator. Top performers receive the TMN Prize Grant of &#8358;1M&ndash;&#8358;2M. You will not be left alone after graduation &mdash; you will be part of a growing movement of disciplined Nigerian voices shaping the national conversation.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/"><img src="https://www.movementnigeria.ng/wp-content/uploads/2026/04/20260331_112235-scaled-e1775024509865.png" alt="The Movement Nigeria" class="footer-brand" style="height:68px;width:auto;margin-bottom:20px;"></a>
+        <p class="footer-tagline">Organizing Citizens. Rebuilding the Nation. CIAP is a TMN flagship program backed and delivered through iNuud Institute.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/themovement_nigeria?igsh=MTB0eng0Z2sxandvaw%3D%3D&utm_source=qr" class="soc-btn soc-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://x.com/movementni22874?s=11" class="soc-btn soc-x" target="_blank" rel="noopener" aria-label="X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- FLAG: replace # with TMN Facebook profile URL -->
+          <a href="#" class="soc-btn soc-facebook" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@themovement_nigeria?_r=1&_t=ZS-95SCCgSVwNI" class="soc-btn soc-tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+          </a>
+          <!-- FLAG: replace # with TMN WhatsApp group/channel URL -->
+          <a href="#" class="soc-btn soc-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/vision/">Vision</a></li>
+          <li><a href="/pillars/">Pillars</a></li>
+          <li><a href="/agenda/">Agenda</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get Involved</h5>
+        <ul>
+          <li><a href="/join/">Join TMN</a></li>
+          <li><a href="/ciap-program/">CIAP Program</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">&copy; 2026 The Movement Nigeria. All rights reserved. CIAP is a TMN Initiative delivered through iNuud Institute.</p>
+        <p class="footer-motto">Organizing Citizens &middot; Rebuilding the Nation</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+var hamburger  = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var menuClose  = document.getElementById('menuClose');
+
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+menuClose.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(l) {
+  l.addEventListener('click', function() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  var item   = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+  });
+  if (!isOpen) { item.classList.add('open'); }
+}
+
+// ── FADE-UP ANIMATIONS ──
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(function(el) {
+  observer.observe(el);
+});
+
+// ── CIAP BOUNCE ANIMATION ──
+var ciapBounce    = document.getElementById('ciapBounce');
+var howSection    = document.getElementById('how');
+var bounceInterval = null;
+var audioCtx      = null;
+
+function initAudio() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+  }
+  if (audioCtx && audioCtx.state === 'suspended') { audioCtx.resume(); }
+}
+
+function playJumpSound() {
+  if (!audioCtx) { return; }
+  try {
+    var osc  = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(260, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.07);
+    osc.frequency.exponentialRampToValueAtTime(260, audioCtx.currentTime + 0.2);
+    gain.gain.setValueAtTime(1.0, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
+    osc.start(audioCtx.currentTime);
+    osc.stop(audioCtx.currentTime + 0.22);
+  } catch(e) {}
+}
+
+['click', 'touchstart', 'touchend', 'scroll'].forEach(function(evt) {
+  document.addEventListener(evt, function initOnce() {
+    initAudio();
+    document.removeEventListener(evt, initOnce);
+  }, { once: true, passive: true });
+});
+
+var howObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      ciapBounce.classList.add('bouncing');
+      if (bounceInterval) { clearInterval(bounceInterval); }
+      bounceInterval = setInterval(function() { playJumpSound(); }, 700);
+    } else {
+      ciapBounce.classList.remove('bouncing');
+      if (bounceInterval) { clearInterval(bounceInterval); bounceInterval = null; }
+    }
+  });
+}, { threshold: 0.3 });
+
+if (howSection) { howObserver.observe(howSection); }
+
+// ── CTA AUDIO ──
+var ctaSection      = document.getElementById('register');
+var ctaAudio        = new Audio('https://www.movementnigeria.ng/wp-content/uploads/2026/04/NoteGPT_Speech_1776639788322.mp3');
+ctaAudio.volume     = 1.0;
+ctaAudio.preload    = 'auto';
+
+var audioPlayed     = 0;
+var audioSessionDone = false;
+var audioInView     = false;
+
+function playCtaAudio() {
+  if (audioSessionDone) { return; }
+  audioPlayed = 1;
+  ctaAudio.currentTime = 0;
+  ctaAudio.play().catch(function() {});
+  ctaAudio.onended = function() {
+    if (audioPlayed < 2 && !audioSessionDone && audioInView) {
+      setTimeout(function() {
+        if (!audioSessionDone && audioInView) {
+          audioPlayed = 2;
+          ctaAudio.currentTime = 0;
+          ctaAudio.play().catch(function() {});
+          ctaAudio.onended = function() { audioSessionDone = true; };
+        }
+      }, 3500);
+    } else {
+      audioSessionDone = true;
+    }
+  };
+}
+
+var ctaObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      audioInView = true;
+      if (audioPlayed === 0 && !audioSessionDone) {
+        setTimeout(playCtaAudio, 1000);
+      }
+    } else {
+      audioInView = false;
+      if (!audioSessionDone) {
+        ctaAudio.pause();
+        ctaAudio.currentTime = 0;
+        audioPlayed = 0;
+      }
+    }
+  });
+}, { threshold: 0.4 });
+
+if (ctaSection) { ctaObserver.observe(ctaSection); }
+
+document.addEventListener('touchend', function tryAudioOnTouch() {
+  if (audioInView && audioPlayed === 0 && !audioSessionDone) { playCtaAudio(); }
+}, { once: true, passive: true });
+</script>
+</body>
+</html>
